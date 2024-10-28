@@ -4,9 +4,10 @@ import Loading from "./Loading";
 
 type UploadProps = {
   setBg: (bg: string) => void;
+  setNoBg: (noBg: boolean) => void;
 };
 
-const Upload = ({ setBg }: UploadProps) => {
+const Upload = ({ setBg, setNoBg }: UploadProps) => {
   const [uploading, setUploading] = useState(false);
   const [tempBg, setTempBg] = useState<string>("");
 
@@ -45,6 +46,16 @@ const Upload = ({ setBg }: UploadProps) => {
           Set Background
         </button>
       )}
+      <button
+        className="bg-white text-black px-4 py-2 rounded-md"
+        onClick={() => {
+          setNoBg(true);
+          setBg("skip");
+          console.log("pressed");
+        }}
+      >
+        No Background
+      </button>
     </div>
   );
 };

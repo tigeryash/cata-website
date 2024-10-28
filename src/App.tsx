@@ -4,23 +4,32 @@ import Raffle from "./components/Raffle";
 
 function App() {
   const [bg, setBg] = useState<string>("");
+  const [noBg, setNoBg] = useState<boolean | null>(null);
+
+  if (!bg) {
+    return (
+      <div className="h-screen w-full">
+        <Upload setBg={setBg} setNoBg={setNoBg} />
+      </div>
+    );
+  }
 
   return (
     <div className="h-screen w-full">
-      {bg ? (
-        <div
-          className="h-full w-full"
-          style={{
-            backgroundImage: `url(${bg})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        >
-          <Raffle />
-        </div>
-      ) : (
-        <Upload setBg={setBg} />
-      )}
+      <div
+        className={`h-full w-full bg-pink-400`}
+        style={
+          noBg
+            ? {
+                backgroundImage: `url(${bg})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }
+            : undefined
+        }
+      >
+        <Raffle />
+      </div>
     </div>
   );
 }

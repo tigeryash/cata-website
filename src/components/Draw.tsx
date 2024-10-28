@@ -3,48 +3,27 @@ import { Winner } from "./Winner";
 
 type DrawProps = {
   usernames: string[];
+  setIsDrawing: (isDrawing: boolean) => void;
 };
-const Draw = ({ usernames }: DrawProps) => {
+const Draw = ({ usernames, setIsDrawing }: DrawProps) => {
   const [selected, setSelected] = useState<number | null>(null);
-  const [finished, setFinished] = useState<boolean>(false);
+  const [reset, setReset] = useState<boolean>(false);
 
   useEffect(() => {
-    if (finished) return;
-    const intervalId = setInterval(() => {
-      setSelected(Math.floor(Math.random() * usernames.length));
-    }, 300); // 0.3 seconds
-
-    const timeoutId = setTimeout(() => {
-      setFinished(true);
-      clearInterval(intervalId);
-    }, 4000); // 4 seconds
-
-    return () => {
-      clearInterval(intervalId);
-      clearTimeout(timeoutId);
-    };
-  }, [usernames, finished]);
+    setReset(false);
+    setSelected(Math.floor(Math.random() * usernames.length));
+  }, [usernames, reset]);
 
   return (
     <div
-      className={`${finished ? " flex" : "grid grid-cols-4"} mx-auto
+      className={` flex" mx-auto
      max-w-2xl gap-6 justify-center items-center h-screen`}
     >
-      {finished ? (
-        <>
-          <Winner user={usernames[selected!]} setFinished={setFinished} />
-        </>
-      ) : (
-        usernames.map((user, idx) => (
-          <div
-            key={idx}
-            className={`text-2xl bg-pink-300 rounded-lg flex items-center justify-center py-4 px-6
-            ${selected === idx ? "ring-pink-400 ring-4" : ""}`}
-          >
-            {user}
-          </div>
-        ))
-      )}
+      <Winner
+        user={usernames[selected!]}
+        setReset={setReset}
+        setIsDrawing={setIsDrawing}
+      />
     </div>
   );
 };
