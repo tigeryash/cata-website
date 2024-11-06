@@ -26,8 +26,12 @@ const Raffle = () => {
   if (!isDrawing) {
     return (
       <div
-        className="flex flex-col items-center justify-center space-y-10 h-[500px] "
-        style={{ backgroundImage: theme.raffleImage }}
+        className="flex flex-col items-center justify-center space-y-10 h-[500px] w-[600px]"
+        style={{
+          backgroundImage: `url(${theme.raffleImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
         <h1 className="text-2xl font-bold ">{theme.title}</h1>
         <textarea

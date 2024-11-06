@@ -26,7 +26,9 @@ const UploadImages = () => {
   );
 };
 
-const ImageInput = ({ name }: { name: string }) => {
+type name = "bgImage" | "raffleImage";
+
+const ImageInput = ({ name }: { name: name }) => {
   const { updateTheme, ...theme } = useThemeStore();
   const [uploading, setUploading] = useState(false);
   const [tempBg, setTempBg] = useState<string>("");
@@ -67,6 +69,7 @@ const ImageInput = ({ name }: { name: string }) => {
             className="bg-blue-500 text-white px-4 py-2 rounded-md"
             onClick={() => {
               updateTheme({ ...theme, [name]: tempBg });
+              console.log(theme[name]);
             }}
           >
             Save

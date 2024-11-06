@@ -1,16 +1,20 @@
 import { ChevronDownIcon } from "@radix-ui/react-icons";
 
+type HeaderType = "h2" | "h3"; // discriminated union
+
+interface MenuHeadersProps {
+  title: string;
+  headerType: HeaderType;
+  setIsOpen: (isOpen: boolean) => void;
+  isOpen: boolean;
+}
+
 const MenuHeaders = ({
   title,
   headerType,
   setIsOpen,
   isOpen,
-}: {
-  title: string;
-  headerType: string;
-  setIsOpen: (isOpen: boolean) => void;
-  isOpen: boolean;
-}) => {
+}: MenuHeadersProps) => {
   return (
     <div className="flex items-center " onClick={() => setIsOpen(!isOpen)}>
       {headerType === "h3" ? (

@@ -6,7 +6,7 @@ function App() {
   const theme = useThemeStore();
   return (
     <div
-      className={`h-screen relative w-full  `}
+      className={`h-screen relative w-full font-straight flex flex-col justify-center items-center`}
       style={
         theme.bgImage
           ? {
