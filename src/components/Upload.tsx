@@ -5,9 +5,11 @@ import Loading from "./Loading";
 type UploadProps = {
   setBg: (bg: string) => void;
   setNoBg: (noBg: boolean) => void;
+  title: string;
+  setTitle: (title: string) => void;
 };
 
-const Upload = ({ setBg, setNoBg }: UploadProps) => {
+const Upload = ({ setBg, setNoBg, title, setTitle }: UploadProps) => {
   const [uploading, setUploading] = useState(false);
   const [tempBg, setTempBg] = useState<string>("");
 
@@ -37,6 +39,13 @@ const Upload = ({ setBg, setNoBg }: UploadProps) => {
         accept="image/*"
         placeholder="Upload background Image"
         onChange={handleUpload}
+      />
+      <input
+        className="bg-white text-black px-4 py-2 rounded-md"
+        type="text"
+        placeholder="Enter Title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
       />
       {tempBg && (
         <button

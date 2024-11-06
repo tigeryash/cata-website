@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Draw from "./Draw";
+import { useThemeStore } from "../stores/ThemeStore";
 
 const Raffle = () => {
+  const theme = useThemeStore();
   const [usernames, setUsernames] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState<string>("");
   const [isDrawing, setIsDrawing] = useState<boolean>(false);
@@ -24,7 +26,7 @@ const Raffle = () => {
   if (!isDrawing) {
     return (
       <div className="flex flex-col items-center justify-center space-y-10 h-full">
-        <h1 className="text-2xl font-bold ">Enter Usernames</h1>
+        <h1 className="text-2xl font-bold ">{theme.title}</h1>
         <textarea
           name="user list"
           value={inputValue}
