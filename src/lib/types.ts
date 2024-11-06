@@ -5,6 +5,8 @@ export type ThemeState = {
   buttonColor: HexColor;
   buttonTextColor: HexColor;
   buttonText: string;
+  bgImage: string;
+  raffleImage: string;
 };
 
 export type HexColor = `#${string}`;

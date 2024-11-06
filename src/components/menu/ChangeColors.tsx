@@ -49,7 +49,6 @@ const ColorInput = ({ title }: { title: string }) => {
           updateTheme({
             [config.themeKey]: e.target.value as HexColor,
           });
-          console.log(theme[config.themeKey]);
         }}
       />
     </>

@@ -13,6 +13,8 @@ const initialState: ThemeState = {
   buttonColor: "#3b82f6",
   buttonTextColor: "#ffffff",
   buttonText: "Draw",
+  bgImage: "",
+  raffleImage: "",
 };
 
 export const useThemeStore = create<ThemeStore>((set) => ({

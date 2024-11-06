@@ -25,7 +25,10 @@ const Raffle = () => {
 
   if (!isDrawing) {
     return (
-      <div className="flex flex-col items-center justify-center space-y-10 h-full">
+      <div
+        className="flex flex-col items-center justify-center space-y-10 h-[500px] "
+        style={{ backgroundImage: theme.raffleImage }}
+      >
         <h1 className="text-2xl font-bold ">{theme.title}</h1>
         <textarea
           name="user list"
@@ -42,8 +45,12 @@ const Raffle = () => {
           }}
         />
         <button
-          className="bg-blue-500 text-white p-2 rounded-md"
+          className={` p-2 rounded-md`}
           onClick={handleEnterUsers}
+          style={{
+            backgroundColor: theme.buttonColor,
+            color: theme.buttonTextColor,
+          }}
         >
           Enter names
         </button>

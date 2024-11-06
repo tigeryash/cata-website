@@ -6,15 +6,16 @@ function App() {
   const theme = useThemeStore();
   return (
     <div
-      className="h-screen relative w-full  bg-pink-400"
+      className={`h-screen relative w-full  `}
       style={
-        theme.bg
+        theme.bgImage
           ? {
-              backgroundImage: `url(${theme.bg})`,
+              backgroundImage: `url(${theme.bgImage})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
+              color: theme.fontColor,
             }
-          : undefined
+          : { backgroundColor: theme.bg, color: theme.fontColor }
       }
     >
       <Raffle />

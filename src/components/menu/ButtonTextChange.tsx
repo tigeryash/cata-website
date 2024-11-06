@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useThemeHandler } from "../../hooks/usThemeHandler";
+import { useThemeHandler } from "../../hooks/useThemeHandler";
 import { useThemeStore } from "../../stores/ThemeStore";
 import MenuHeaders from "./MenuHeaders";
 

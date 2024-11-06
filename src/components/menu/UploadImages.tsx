@@ -1,5 +1,7 @@
 import { useState } from "react";
 import MenuHeaders from "./MenuHeaders";
+import Loading from "../Loading";
+import { useThemeStore } from "../../stores/ThemeStore";
 
 const UploadImages = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -15,16 +17,17 @@ const UploadImages = () => {
       {isOpen && (
         <>
           <h3>Background</h3>
-          <ImageInput />
+          <ImageInput name="bgImage" />
           <h3>Raffle Background</h3>
-          <ImageInput />
+          <ImageInput name="raffleImage" />
         </>
       )}
     </>
   );
 };
 
-const ImageInput = () => {
+const ImageInput = ({ name }: { name: string }) => {
+  const { updateTheme, ...theme } = useThemeStore();
   const [uploading, setUploading] = useState(false);
   const [tempBg, setTempBg] = useState<string>("");
 
@@ -43,6 +46,14 @@ const ImageInput = () => {
   };
   return (
     <div>
+      {uploading && <Loading />}
+      {tempBg && (
+        <img
+          src={tempBg}
+          className="w-full h-[300px] object-cover"
+          alt="temp"
+        />
+      )}
       <input
         className="bg-white text-black px-4 py-2 rounded-md"
         type="file"
@@ -50,6 +61,27 @@ const ImageInput = () => {
         placeholder="Upload background Image"
         onChange={handleUpload}
       />
+      {tempBg && (
+        <div className="flex justify-between">
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded-md"
+            onClick={() => {
+              updateTheme({ ...theme, [name]: tempBg });
+            }}
+          >
+            Save
+          </button>
+          <button
+            className="bg-red-500 text-white px-4 py-2 rounded-md"
+            onClick={() => {
+              setTempBg("");
+              updateTheme({ ...theme, [name]: "" });
+            }}
+          >
+            Cancel
+          </button>
+        </div>
+      )}
     </div>
   );
 };
