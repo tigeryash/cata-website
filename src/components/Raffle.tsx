@@ -9,6 +9,7 @@ const Raffle = () => {
   const [inputValue, setInputValue] = useState<string>("");
 
   const [isDrawing, setIsDrawing] = useState<boolean>(false);
+  console.log(usernames);
 
   const handleEnterUsers = () => {
     setIsDrawing(true);
@@ -17,7 +18,7 @@ const Raffle = () => {
         .split(",")
         .map((name) => name.trim())
         .filter((name) => name !== "");
-      setUsernames([...usernames, ...newUsernames]);
+      setUsernames([ ...newUsernames]);
     }
   };
 
