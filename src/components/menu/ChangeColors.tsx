@@ -59,7 +59,7 @@ const ColorInput = ({ title }: { title: string }) => {
     <>
       <h3>{title}</h3>
       <div className="w-20 h-8 border-2 border-black rounded-lg shadow-lg relative" style={{ backgroundColor: theme[config.themeKey] }} onClick={() => setIsOpen(!isOpen)}>
-        {isOpen && <div ref={pickerRef} className="absolute -top-60 right-8" onClick={(e) => e.stopPropagation()}>
+        {isOpen && <div ref={pickerRef} className="absolute -top-60 right-8 z-10" onClick={(e) => e.stopPropagation()}>
           <ColorPicker 
             color={color}
             onChange={(e) => {
