@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Draw from "./Draw";
 import { useThemeStore } from "../stores/ThemeStore";
+import RaffleDrawButton from "./RaffleDrawButton";
 
 const Raffle = () => {
   const theme = useThemeStore();
@@ -51,16 +52,7 @@ const Raffle = () => {
             }
           }}
         />
-        <button
-          className={` p-2 rounded-md`}
-          onClick={handleEnterUsers}
-          style={{
-            backgroundColor: theme.buttonColor,
-            color: theme.buttonTextColor,
-          }}
-        >
-          {theme.buttonText}
-        </button>
+        <RaffleDrawButton handleEnterUsers={handleEnterUsers} />
       </div>
     );
   }
