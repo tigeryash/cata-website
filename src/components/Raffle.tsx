@@ -7,6 +7,7 @@ const Raffle = () => {
   const theme = useThemeStore();
   const [usernames, setUsernames] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState<string>("");
+
   const [isDrawing, setIsDrawing] = useState<boolean>(false);
 
   const handleEnterUsers = () => {
@@ -32,6 +33,7 @@ const Raffle = () => {
           backgroundImage: `url(${theme.raffleImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          fontFamily: theme.customFont ? 'CustomFont, system-ui' : 'system-ui',
         }}
       >
         <h1 className="text-2xl font-bold ">{theme.title}</h1>

@@ -1,5 +1,6 @@
 import ButtonTextChange from "./ButtonTextChange";
 import ChangeColors from "./ChangeColors";
+import FontUpload from "./FontUpload";
 import MenuButton from "./MenuButton";
 import TitleChange from "./TitleChange";
 import UploadImages from "./UploadImages";
@@ -12,10 +13,10 @@ type MenuEditorProps = {
 const MenuEditor = ({ isOpen, setIsOpen }: MenuEditorProps) => {
   return (
     <div
-      className={` bg-white flex flex-col  space-y-6 rounded-lg w-[360px]  shadow-lg 
+      className={`font-sans bg-white flex flex-col space-y-6 rounded-lg w-[360px] shadow-lg 
         ${
           isOpen ? "block" : "hidden"
-        } p-4 h-[calc(100vh-2rem)]  overflow-y-auto scrollbar-thin `}
+        } p-4 h-[calc(100vh-2rem)] overflow-y-auto scrollbar-thin`}
     >
       <div className="sticky top-0 bg-white z-10 space-y-4 ">
         {" "}
@@ -30,6 +31,8 @@ const MenuEditor = ({ isOpen, setIsOpen }: MenuEditorProps) => {
       <ButtonTextChange />
 
       <ChangeColors />
+      
+      <FontUpload />
       
     </div>
   );

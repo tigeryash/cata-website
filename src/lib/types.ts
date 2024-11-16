@@ -7,7 +7,8 @@ export type ThemeState = {
   buttonText: string;
   bgImage: string;
   raffleImage: string;
-  textareaColor: string
+  textareaColor: string;
+  customFont: string;
 };
 
 export type HexColor = `#${string}`;

@@ -12,7 +12,11 @@ export const Winner = ({
   const theme = useThemeStore();
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center h-screen"
+      style={{
+        fontFamily: theme.customFont ? 'CustomFont, system-ui' : 'system-ui'
+      }}
+    >
       <h1 className="text-4xl font-bold">The Raffle Winner is...</h1>
       <h2 className="text-8xl font-bold ">{user}</h2>
       <div className="absolute bottom-10 space-x-4">
