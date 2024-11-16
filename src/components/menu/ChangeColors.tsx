@@ -2,6 +2,10 @@ import { useState } from "react";
 import MenuHeaders from "./MenuHeaders";
 import { useThemeStore } from "../../stores/ThemeStore";
 import { HexColor } from "../../lib/types";
+import { ColorPicker, useColor } from "react-color-palette";
+import "react-color-palette/css";
+
+
 
 const colorConfig = {
   background: { display: "Background", themeKey: "bg" },
@@ -23,7 +27,7 @@ const ChangeColors = () => {
         isOpen={isOpen}
       />
       {isOpen && (
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4">
           {Object.values(colorConfig).map(({ display }) => (
             <ColorInput key={display} title={display} />
           ))}
@@ -36,23 +40,21 @@ const ChangeColors = () => {
 const ColorInput = ({ title }: { title: string }) => {
   const { updateTheme, ...theme } = useThemeStore();
   const config = Object.values(colorConfig).find((c) => c.display === title)!;
+  const [color, setColor] = useColor(theme[config.themeKey] as HexColor);
   // ! is used to ensure that the config is not undefined
   // config is used to set the value of the specific key in the colorConfig object
 
   return (
-    <>
+    <div className="flex flex-col ">
       <h3>{title}</h3>
-      <input
-        type="color"
-        className="bg-white text-black cursor-pointer rounded-md"
-        value={theme[config.themeKey] as HexColor}
-        onChange={(e) => {
-          updateTheme({
-            [config.themeKey]: e.target.value as HexColor,
-          });
+      <ColorPicker 
+        color={color}
+        onChange={(e ) => {
+          updateTheme({ [config.themeKey]: e.hex });
+          setColor(e);
         }}
       />
-    </>
+    </div>
   );
 };
 

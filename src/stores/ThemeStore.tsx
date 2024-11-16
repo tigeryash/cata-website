@@ -7,7 +7,7 @@ interface ThemeStore extends ThemeState {
 }
 
 const initialState: ThemeState = {
-  bg: "#f472b6",
+  bg: "#ffc3e3",
   title: "Enter usernames",
   fontColor: "#000000",
   buttonColor: "#3b82f6",
