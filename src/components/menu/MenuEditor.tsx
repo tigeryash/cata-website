@@ -30,6 +30,7 @@ const MenuEditor = ({ isOpen, setIsOpen }: MenuEditorProps) => {
       <ButtonTextChange />
 
       <ChangeColors />
+      
     </div>
   );
 };

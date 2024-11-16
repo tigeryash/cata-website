@@ -59,7 +59,7 @@ const Raffle = () => {
             color: theme.buttonTextColor,
           }}
         >
-          Enter names
+          {theme.buttonText}
         </button>
       </div>
     );
