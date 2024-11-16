@@ -40,6 +40,9 @@ const Raffle = () => {
           onChange={(e) => setInputValue(e.target.value)}
           rows={4}
           cols={50}
+          style={{
+            backgroundColor: theme.textareaColor,
+          }}
           placeholder="Ex. Catabaka, Catabaka2"
           className="border-2 border-gray-300 rounded-md p-2"
           onKeyDown={(e) => {

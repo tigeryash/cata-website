@@ -8,6 +8,7 @@ const colorConfig = {
   font: { display: "Font", themeKey: "fontColor" },
   button: { display: "Button", themeKey: "buttonColor" },
   buttonText: { display: "Button Text", themeKey: "buttonTextColor" },
+  textareaColor: { display: "Textarea", themeKey: "textareaColor" },
 } as const;
 
 const ChangeColors = () => {

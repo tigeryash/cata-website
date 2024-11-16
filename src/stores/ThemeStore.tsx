@@ -15,6 +15,7 @@ const initialState: ThemeState = {
   buttonText: "Draw",
   bgImage: "",
   raffleImage: "",
+  textareaColor: ''
 };
 
 export const useThemeStore = create<ThemeStore>((set) => ({
